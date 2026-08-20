@@ -1,29 +1,53 @@
-# Automação de envio de fotos
+# Becaletto
 
-Sistema para automatização do processamento de romaneios e preparação do envio de fotos de peças para revendedoras.
+> Automação do processo de conferência de romaneios e envio de fotos de peças para revendedoras.
 
-## Objetivo
+O **Becaletto** transforma um processo manual de conferência de malas em um fluxo digital: o usuário envia o romaneio, o sistema identifica as peças, consulta o catálogo de fotos e prepara o envio para a revendedora.
 
-O projeto tem como objetivo automatizar o processo de:
+## ✨ O que o sistema faz
 
-1. Receber o romaneio em PDF;
-2. Identificar as peças e suas quantidades;
-3. Consultar o catálogo de fotos no Google Drive;
-4. Apresentar as peças encontradas e as que não possuem foto;
-5. Identificar a revendedora;
-6. Preparar o envio das fotos pelo WhatsApp.
+- 📄 Leitura de romaneios em PDF
+- 🔎 Identificação automática das peças
+- 🔢 Consolidação de peças repetidas
+- 🖼️ Consulta de fotos no Google Drive
+- 📋 Conferência das peças encontradas e sem foto
+- 👩‍💼 Cadastro e seleção de revendedoras
+- 📱 Preparação do envio pelo WhatsApp
 
-## Arquitetura
-
-O projeto é dividido em frontend e backend.
+## 🖥️ Fluxo
 
 ```text
-Frontend
-   │
-   │ HTTP
-   ▼
-Backend / FastAPI
-   │
-   ├── Leitura do PDF
-   │
-   └── Google Drive
+        ROMANEIO
+           │
+           ▼
+    ┌───────────────┐
+    │  Upload PDF   │
+    └───────┬───────┘
+            │
+            ▼
+    ┌───────────────┐
+    │    Análise    │
+    │   do romaneio │
+    └───────┬───────┘
+            │
+            ▼
+    ┌───────────────┐
+    │ Google Drive  │
+    │  Catálogo de  │
+    │     fotos     │
+    └───────┬───────┘
+            │
+            ▼
+    ┌───────────────┐
+    │  Conferência  │
+    │   das peças   │
+    └───────┬───────┘
+            │
+            ▼
+    ┌───────────────┐
+    │ Revendedora   │
+    │ + WhatsApp    │
+    └───────┬───────┘
+            │
+            ▼
+       ENVIO DAS FOTOS****
