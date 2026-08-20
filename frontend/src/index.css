@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-paper: #fbf6f0;
+  --color-paper-raised: #ffffff;
+  --color-ink: #241c18;
+  --color-ink-soft: #4a3f39;
+  --color-muted: #8c7e74;
+  --color-line: #e7dccf;
+
+  --color-brand: #6e2a26;
+  --color-brand-dark: #4f1c19;
+  --color-brand-tint: #f4e8e3;
+
+  --color-gold: #b3903f;
+  --color-gold-soft: #ede0c4;
+
+  --color-success: #4b7a5d;
+  --color-success-bg: #e8f1ea;
+
+  --color-amber: #a5672e;
+  --color-amber-bg: #f8eedf;
+}
+
+html {
+  background: var(--color-paper);
+}
+
+body {
+  margin: 0;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(110, 42, 38, 0.055) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+::selection {
+  background: var(--color-gold-soft);
+  color: var(--color-brand-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Elemento-assinatura: "ficha" de peça, no espírito das etiquetas   */
+/* físicas usadas nas maletas — furo de cordão + haste tracejada.    */
+/* ---------------------------------------------------------------- */
+.tag-card {
+  position: relative;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  overflow: visible;
+}
+
+.tag-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 22px;
+  width: 14px;
+  height: 14px;
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  transform: translateY(-50%);
+}
+
+.tag-code {
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+.tag-divider {
+  border: none;
+  border-top: 1.5px dashed var(--color-line);
+  margin: 0;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}

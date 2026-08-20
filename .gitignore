@@ -1,0 +1,27 @@
+# Python
+backend/.venv/
+backend/__pycache__/
+
+# Credenciais
+backend/credentials/
+.env
+.env.*
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Testes locais
+tests/*.pdf
+
+# Sistema / IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# PDFs de teste locais
+*.pdf
